@@ -32,7 +32,7 @@ class SectionView<T: ElementDataSource>: UIView {
         }
         source = dataSource
         currentKeyPath = keyPath
-        draw(dataSource[keyPath: keyPath])
+        draw()
         observe()
     }
     
@@ -43,13 +43,15 @@ class SectionView<T: ElementDataSource>: UIView {
             _ = source[keyPath: currentKeyPath].count
         } onChange: {
             Task { @MainActor in
-                self.draw(source[keyPath: currentKeyPath])
+                self.draw()
                 self.observe()
             }
         }
     }
     
-    func draw(_ elements: [T]) {
+    func draw() {
+        guard let source, let currentKeyPath else { return }
+        let elements = source[keyPath: currentKeyPath]
         let newElementIds = elements.map(ObjectIdentifier.init)
         for (id, element) in zip(newElementIds, elements) {
             if elementViews.keys.contains(id) {
