@@ -35,19 +35,10 @@ class EffectView: UIView {
     func setup(_ effect: EffectDataSource) {
         guard effect !== source else { return }
         source = effect
-        observe()
-    }
-    
-    func observe() {
-        guard let source else { return }
-        print("redraw effect with name: \(source.name)")
-        withPerceptionTracking {
-            titleLabel.text = source.name
-            iconView.image = UIImage(systemName: source.iconName)
-        } onChange: {
-            Task { @MainActor in
-                self.observe()
-            }
+        observe { [weak self, weak effect] in
+            guard let self, let effect else { return }
+            titleLabel.text = effect.name
+            iconView.image = UIImage(systemName: effect.iconName)
         }
     }
     

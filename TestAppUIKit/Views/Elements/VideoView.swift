@@ -39,19 +39,10 @@ class VideoView: UIView {
     func setup(_ video: VideoDataSource) {
         guard video !== source else { return }
         source = video
-        observe()
-    }
-    
-    func observe() {
-        guard let source else { return }
-        print("redraw video with name: \(source.name)")
-        withPerceptionTracking {
-            titleLabel.text = source.name
-            hasSoundView.isHidden = !source.hasSound
-        } onChange: {
-            Task { @MainActor in
-                self.observe()
-            }
+        observe { [weak self, weak video] in
+            guard let self, let video else { return }
+            titleLabel.text = video.name
+            hasSoundView.isHidden = !video.hasSound
         }
     }
     

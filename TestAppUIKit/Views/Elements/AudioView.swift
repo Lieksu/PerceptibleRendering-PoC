@@ -48,20 +48,11 @@ class AudioView: UIView {
     func setup(_ audio: AudioDataSource) {
         guard audio !== source else { return }
         source = audio
-        observe()
-    }
-    
-    func observe() {
-        guard let source else { return }
-        print("redraw audio with name: \(source.name)")
-        withPerceptionTracking {
-            titleLabel.text = source.name
-            artistLabel.text = source.artist
-            volumeLabel.text = "\(source.volume)"
-        } onChange: {
-            Task { @MainActor in
-                self.observe()
-            }
+        observe { [weak self, weak audio] in
+            guard let self, let audio else { return }
+            titleLabel.text = audio.name
+            artistLabel.text = audio.artist
+            volumeLabel.text = "\(audio.volume)"
         }
     }
 

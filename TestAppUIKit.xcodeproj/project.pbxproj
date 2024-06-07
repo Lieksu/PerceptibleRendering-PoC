@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D51B3412C05DF6F00012D16 /* Perceptible+Observe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51B3402C05DF6F00012D16 /* Perceptible+Observe.swift */; };
 		4D73BC212BFCBD3500F897DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73BC202BFCBD3500F897DA /* AppDelegate.swift */; };
 		4D73BC232BFCBD3500F897DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73BC222BFCBD3500F897DA /* SceneDelegate.swift */; };
 		4D73BC252BFCBD3500F897DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73BC242BFCBD3500F897DA /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D51B3402C05DF6F00012D16 /* Perceptible+Observe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Perceptible+Observe.swift"; sourceTree = "<group>"; };
 		4D73BC1D2BFCBD3500F897DA /* TestAppUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAppUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D73BC202BFCBD3500F897DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D73BC222BFCBD3500F897DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				4D73BC2B2BFCBD3600F897DA /* LaunchScreen.storyboard */,
 				4D73BC2E2BFCBD3600F897DA /* Info.plist */,
 				4D9F2FC82BFFB6F400B58CB4 /* Collection+Additions.swift */,
+				4D51B3402C05DF6F00012D16 /* Perceptible+Observe.swift */,
 			);
 			path = TestAppUIKit;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				4D89AD4B2BFE2DCD00DA614C /* AudioView.swift in Sources */,
 				4D89AD4D2BFE2DE600DA614C /* EffectView.swift in Sources */,
 				4D73BC522BFCBE7E00F897DA /* VideoView.swift in Sources */,
+				4D51B3412C05DF6F00012D16 /* Perceptible+Observe.swift in Sources */,
 				4D89AD552BFE30B600DA614C /* TimelineDataSource.swift in Sources */,
 				4D73BC212BFCBD3500F897DA /* AppDelegate.swift in Sources */,
 				4D73BC232BFCBD3500F897DA /* SceneDelegate.swift in Sources */,

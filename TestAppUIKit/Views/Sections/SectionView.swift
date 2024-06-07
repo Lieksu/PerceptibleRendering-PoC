@@ -33,19 +33,9 @@ class SectionView<T: ElementDataSource>: UIView {
         source = dataSource
         currentKeyPath = keyPath
         draw()
-        observe()
-    }
-    
-    func observe() {
-        guard let source, let currentKeyPath else { return }
-        print("redraw section view for \(T.self).")
-        withPerceptionTracking {
-            _ = source[keyPath: currentKeyPath].count
-        } onChange: {
-            Task { @MainActor in
-                self.draw()
-                self.observe()
-            }
+        observe { [weak self] in
+            _ = dataSource[keyPath: keyPath].count
+            self?.draw()
         }
     }
     
